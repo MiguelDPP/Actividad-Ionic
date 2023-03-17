@@ -1,0 +1,7 @@
+{
+  "name": "Actividad Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
