@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-directory',
   templateUrl: './directory.page.html',
@@ -9,7 +11,7 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 })
 export class DirectoryPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
 
   items: any[] = [];
   // Colores de forndo
@@ -22,6 +24,10 @@ export class DirectoryPage implements OnInit {
     '2196f3',
     '03a9f4',
   ];
+
+  goToDetailsPage() {
+    this.navController.navigateForward('/about');
+  }
 
   nameTemp: string = '';
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-mision-and-vision',
   templateUrl: './mision-and-vision.page.html',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MisionAndVisionPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
+
+  goToDetailsPage() {
+    this.navController.navigateForward('/about');
+  }
 
   ngOnInit() {
   }

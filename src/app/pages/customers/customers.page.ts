@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faker } from '@faker-js/faker';
 
+import { NavController } from '@ionic/angular';
+
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.page.html',
@@ -8,8 +10,13 @@ import { faker } from '@faker-js/faker';
 })
 export class CustomersPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
   items: any[] = [];
+
+  goToDetailsPage() {
+    this.navController.navigateForward('/about');
+  }
+
   ngOnInit() {
     for (let i = 1; i < 51; i++) {
       this.items.push({

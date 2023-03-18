@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faker } from '@faker-js/faker';
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +9,11 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
 })
 export class ProductsPage implements OnInit {
 
-  constructor() { }
+  constructor(private navController: NavController) { }
+
+  goToDetailsPage() {
+    this.navController.navigateForward('/about');
+  }
 
   // api = "https://api.escuelajs.co/api/v1/products"
 
