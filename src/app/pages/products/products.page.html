@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <!-- Icon de acerca de -->
+      <ion-button href="/about">
+        <ion-icon name="information-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Productos</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Productos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let producto of productos">
+          <ion-label>
+            <h2>{{producto.title}}</h2>
+            <h3>{{producto.precio}}</h3>
+            <p>{{producto.descripcion}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> -->
+  <div *ngFor="let producto of productos">
+    <ion-card>
+      <!-- <img alt="Silhouette of mountains" src={{producto.images[0]}} /> -->
+      <!-- Imagen con carga condicional -->
+      <img *ngIf="producto.image" alt="Silhouette of mountains" src={{producto.image}} />
+      <ion-card-header>
+        <ion-card-title>
+          ${{producto.price}}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{producto.title}}
+        </ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{producto.description}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingText="Espere por favor..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
